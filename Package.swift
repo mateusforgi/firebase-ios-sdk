@@ -29,17 +29,17 @@ let package = Package(
       name: "FirebaseAnalytics",
       targets: ["FirebaseAnalyticsTarget"]
     ),
-//    .library(
-//      name: "FirebaseInstallations",
-//      targets: ["FirebaseInstallations"]
-//    ),
+    .library(
+      name: "FirebaseInstallations",
+      targets: ["FirebaseInstallations"]
+    ),
   ],
   dependencies: [
-//    .package(
-//        name: "Promises",
-//        url: "https://github.com/google/promises.git",
-//        "2.1.0" ..< "3.0.0"
-//      ),
+    .package(
+        name: "Promises",
+        url: "https://github.com/google/promises.git",
+        "2.1.0" ..< "3.0.0"
+      ),
     .package(
       name: "GoogleAppMeasurement",
       url: "https://github.com/google/GoogleAppMeasurement.git",
@@ -59,61 +59,61 @@ let package = Package(
     ),
   ],
   targets: [
-//    .target(
-//       name: "Firebase",
-//       path: "CoreOnly/Sources",
-//       publicHeadersPath: "./"
-//     ),
-//    .target(
-//      name: "FirebaseCoreInternal",
-//      dependencies: [
-//        .product(name: "GULNSData", package: "GoogleUtilities"),
-//      ],
-//      path: "FirebaseCore/Internal/Sources"
-//    ),
+    .target(
+       name: "Firebase",
+       path: "CoreOnly/Sources",
+       publicHeadersPath: "./"
+     ),
+    .target(
+      name: "FirebaseCoreInternal",
+      dependencies: [
+        .product(name: "GULNSData", package: "GoogleUtilities"),
+      ],
+      path: "FirebaseCore/Internal/Sources"
+    ),
     
-//    .target(
-//      name: "FirebaseCore",
-//      dependencies: [
-//        "Firebase",
-//        "FirebaseCoreInternal",
-//        .product(name: "GULEnvironment", package: "GoogleUtilities"),
-//        .product(name: "GULLogger", package: "GoogleUtilities"),
-//      ],
-//      path: "FirebaseCore/Sources",
-//      publicHeadersPath: "Public",
-//      cSettings: [
-//        .headerSearchPath("../.."),
-//        .define("Firebase_VERSION", to: firebaseVersion),
-//        // TODO: - Add support for cflags cSetting so that we can set the -fno-autolink option
-//      ],
-//      linkerSettings: [
-//        .linkedFramework("UIKit", .when(platforms: [.iOS, .tvOS])),
-//        .linkedFramework("AppKit", .when(platforms: [.macOS])),
-//      ]
-//    ),
+    .target(
+      name: "FirebaseCore",
+      dependencies: [
+        "Firebase",
+        "FirebaseCoreInternal",
+        .product(name: "GULEnvironment", package: "GoogleUtilities"),
+        .product(name: "GULLogger", package: "GoogleUtilities"),
+      ],
+      path: "FirebaseCore/Sources",
+      publicHeadersPath: "Public",
+      cSettings: [
+        .headerSearchPath("../.."),
+        .define("Firebase_VERSION", to: firebaseVersion),
+        // TODO: - Add support for cflags cSetting so that we can set the -fno-autolink option
+      ],
+      linkerSettings: [
+        .linkedFramework("UIKit", .when(platforms: [.iOS, .tvOS])),
+        .linkedFramework("AppKit", .when(platforms: [.macOS])),
+      ]
+    ),
     .target(
       name: "FirebaseAnalyticsTarget",
       dependencies: [.target(name: "FirebaseAnalyticsWrapper")],
       path: "SwiftPM-PlatformExclude/FirebaseAnalyticsWrap"
     ),
-//    .target(
-//        name: "FirebaseInstallations",
-//        dependencies: [
-//          "FirebaseCore",
-//          .product(name: "FBLPromises", package: "Promises"),
-//          .product(name: "GULEnvironment", package: "GoogleUtilities"),
-//          .product(name: "GULUserDefaults", package: "GoogleUtilities"),
-//        ],
-//        path: "FirebaseInstallations/Source/Library",
-//        publicHeadersPath: "Public",
-//        cSettings: [
-//          .headerSearchPath("../../../"),
-//        ],
-//        linkerSettings: [
-//          .linkedFramework("Security"),
-//        ]
-//      ),
+    .target(
+        name: "FirebaseInstallations",
+        dependencies: [
+          "FirebaseCore",
+          .product(name: "FBLPromises", package: "Promises"),
+          .product(name: "GULEnvironment", package: "GoogleUtilities"),
+          .product(name: "GULUserDefaults", package: "GoogleUtilities"),
+        ],
+        path: "FirebaseInstallations/Source/Library",
+        publicHeadersPath: "Public",
+        cSettings: [
+          .headerSearchPath("../../../"),
+        ],
+        linkerSettings: [
+          .linkedFramework("Security"),
+        ]
+      ),
 
     .target(
       name: "FirebaseAnalyticsWrapper",
@@ -121,8 +121,8 @@ let package = Package(
         .target(name: "FirebaseAnalytics"),
         .product(name: "GoogleAppMeasurement",
                  package: "GoogleAppMeasurement"),
-//        "FirebaseCore",
-//        "FirebaseInstallations",
+        "FirebaseCore",
+        "FirebaseInstallations",
         .product(name: "GULAppDelegateSwizzler", package: "GoogleUtilities"),
         .product(name: "GULMethodSwizzler", package: "GoogleUtilities"),
         .product(name: "GULNSData", package: "GoogleUtilities"),
