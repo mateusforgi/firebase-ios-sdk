@@ -52,11 +52,11 @@ let package = Package(
       url: "https://github.com/google/GoogleUtilities.git",
       "7.10.0" ..< "8.0.0"
     ),
-    .package(
-      name: "nanopb",
-      url: "https://github.com/firebase/nanopb.git",
-      "2.30909.0" ..< "2.30910.0"
-    ),
+//     .package(
+//       name: "nanopb",
+//       url: "https://github.com/firebase/nanopb.git",
+//       "2.30909.0" ..< "2.30910.0"
+//     ),
   ],
   targets: [
     .target(
@@ -127,7 +127,7 @@ let package = Package(
         .product(name: "GULMethodSwizzler", package: "GoogleUtilities"),
         .product(name: "GULNSData", package: "GoogleUtilities"),
         .product(name: "GULNetwork", package: "GoogleUtilities"),
-        .product(name: "nanopb", package: "nanopb"),
+      //  .product(name: "nanopb", package: "nanopb"),
       ],
       path: "FirebaseAnalyticsWrapper",
       linkerSettings: [
